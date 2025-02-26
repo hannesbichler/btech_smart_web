@@ -1,0 +1,54 @@
+[id^='prowin'] {}
+#prowinTOP {}
+
+@keyframes prowinKEYFRAMES_RGB { 
+	  0% {background-color:red;} 
+	 25% {background-color:green;} 
+	 50% {background-color:blue;} 
+	 75% {background-color:green;} 
+	100% {background-color:red;} 
+}
+
+#prowinANIME {
+	border:solid 5px #228c8b;
+	border-radius:10px;
+	animation:prowinKEYFRAMES_RGB 3.0s infinite 0.0s alternate;
+}
+
+@keyframes prowinKEYFRAMES_BAR { 
+	  0% {left:0px;} 
+	100% {left:95%;} 
+}
+
+#prowinBAR {
+	position:relative;
+	left:0%;
+	background-color:#363636;
+	border-radius:50%;
+	width:10px;
+	height:10px;
+	animation:prowinKEYFRAMES_BAR 4.0s infinite 0.0s alternate;
+}
+
+#prowinTXT {
+	background-color:floralwhite;
+	border:solid 5px #228c8b;
+	border-radius:10px;
+	box-shadow:10px 10px 10px floralwhite;
+}
+
+[id^='prowinSPAN'] {
+	display:block;
+	margin:5px;
+	border:solid 2px #228c8b;
+	background-color:floralwhite;
+	color:#363636;
+	font-family:UbuMonoReg;
+	font-size:18px;
+}
+
+/*
+#228c8b
+#363636
+#FFFFFF
+*/

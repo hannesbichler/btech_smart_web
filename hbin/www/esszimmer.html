@@ -1,0 +1,369 @@
+<html lang="en"><head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="description" content="">
+
+    <meta name="author" content="">
+
+    <link rel="icon" href="../../favicon.ico">
+
+
+
+    <title>Smart Home by Bichler Technologies GmbH</title>
+
+
+
+    <!-- Bootstrap core CSS -->
+
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+
+
+
+    <!-- Custom styles for this template -->
+
+    <link href="./css/sticky-footer-navbar.css" rel="stylesheet">
+
+	<script src="./js/communication.js"></script>
+
+	<style type="text/css">
+
+	    .onoffswitch {
+        position: relative; width: 200px;
+        -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+		float:right;
+    }
+
+    .onoffswitch-checkbox {
+
+        display: none;
+
+    }
+
+    .onoffswitch-label {
+
+        display: block; overflow: hidden; cursor: pointer;
+
+        border: 2px solid #999999; border-radius: 29px;
+
+    }
+
+    .onoffswitch-inner {
+
+        display: block; width: 200%; margin-left: -100%;
+
+        transition: margin 0.3s ease-in 0s;
+
+    }
+
+    .onoffswitch-inner:before, .onoffswitch-inner:after {
+
+        display: block; float: left; width: 50%; height: 61px; padding: 0; line-height: 61px;
+
+        font-size: 24px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+
+        box-sizing: border-box;
+
+    }
+
+    .onoffswitch-inner:before {
+
+        content: "ON";
+
+        padding-left: 10px;
+
+        background-color: #F2AE1B; color: #FFFFFF;
+
+    }
+
+    .onoffswitch-inner:after {
+
+        content: "OFF";
+
+        padding-right: 10px;
+
+        background-color: #827D7D; color: #FFFFFF;
+
+        text-align: right;
+
+    }
+
+    .onoffswitch-switch {
+
+        display: block; width: 50px; margin: 5.5px;
+
+        background: #FFFFFF;
+
+        position: absolute; top: 0; bottom: 0;
+
+        right: 135px;
+
+        border: 2px solid #999999; border-radius: 29px;
+		height: 54px;
+        transition: all 0.3s ease-in 0s; 
+
+    }
+
+    .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+
+        margin-left: 0;
+
+    }
+
+    .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+
+        right: 0px; 
+
+    }
+
+	.onoffswitchlabel {
+	font-size: 24px;
+	color: gray;
+	}
+
+	</style>
+
+ 
+
+  <body>
+
+
+
+    <!-- Fixed navbar -->
+
+    <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+
+        <span class="navbar-toggler-icon"></span>
+
+      </button>
+
+      <a class="navbar-brand" href="#">Esszimmer</a>
+
+	  <div class="collapse navbar-collapse" id="navbarCollapse">
+
+        <ul class="navbar-nav mr-auto">
+
+          
+
+          <li class="nav-item">
+
+            <a class="navbar-brand" href="index.html">Wohnzimmer</a>
+
+          </li>
+		  
+		  <li class="nav-item active">
+
+            <a class="navbar-brand" href="kueche.html">K&uuml;che </a>
+
+          </li>
+
+		  <li class="nav-item">
+
+            <a class="navbar-brand" href="#">Vorzimmer +</a>
+
+          </li>
+
+		  <li class="nav-item">
+
+            <a class="navbar-brand" href="arbeitszimmer.html">Arbeitszimmer</a>
+
+          </li>
+
+		  <li class="nav-item">
+
+            <a class="navbar-brand" href="#">Keller</a>
+
+          </li>
+
+		  <li class="nav-item">
+
+            <a class="navbar-brand" href="#">Zimmer Timo</a>
+
+          </li>
+
+		  <li class="nav-item">
+
+            <a class="navbar-brand" href="#">Zimmer Denise</a>
+
+          </li>
+
+		  <li class="nav-item">
+
+            <a class="navbar-brand" href="#">Stiegenhaus</a>
+
+          </li>
+
+		  <li class="nav-item">
+
+            <a class="navbar-brand" href="#">Bad</a>
+
+          </li>
+
+        </ul>
+
+      </div>
+
+    </nav>
+
+
+
+    <!-- Begin page content -->
+
+    <div class="container">
+
+		<div class="panel-group">
+
+			<div class="panel panel-default">
+
+				<div class="panel-heading">
+
+					<h4 class="panel-title">
+
+						<a data-toggle="collapse" href="#collapse1">Licht</a>
+
+					</h4>
+
+				</div>
+
+				<div id="collapse1" class="panel-collapse collapse">
+
+					<div style="width:100%">
+						<table style="width:100%">
+							<tr>
+								<td>
+									<div>
+										<label class="onoffswitchlabel">Esszimmer</label>
+									</div>
+								</td>
+								<td >
+									<div class="onoffswitch">
+										<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="erdgEsszSoftTast" onclick="sendCheckboxToServer(this);" checked />
+										<label class="onoffswitch-label" for="erdgEsszSoftTast">
+											<span class="onoffswitch-inner"></span>
+											<span class="onoffswitch-switch"></span>
+										</label>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div style="width:100%">
+						<table style="width:100%">
+							<tr>
+								<td>
+									<div>
+										<label class="onoffswitchlabel">Esszimmer Wandboard</label>
+									</div>
+								</td>
+								<td>
+									<div class="onoffswitch">
+										<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="erdgEsszKuechSoftTast" onclick="sendCheckboxToServer(this);" checked />
+										<label class="onoffswitch-label" for="erdgEsszKuechSoftTast">
+											<span class="onoffswitch-inner"></span>
+											<span class="onoffswitch-switch"></span>
+										</label>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+
+				<div class="panel-heading">
+
+					<h4 class="panel-title">
+
+						<a data-toggle="collapse" href="#collapse2">Rollladen</a>
+
+					</h4>
+
+				</div>
+
+				<div id="collapse2" class="panel-collapse collapse">
+					
+					<div>
+
+						<label class="onoffswitchlabel">Terrassentuer</label>
+
+					</div>
+
+					<button type="button" class="btn btn-primary" id="erdgSoftTast7Auf" onclick="sendButtonToServer(this, 'true');">rauf</button>
+
+					<button type="button" class="btn btn-primary" id="erdgSoftTast7Stop" onclick="sendButtonToServer(this, 'true');">stop</button>
+
+					<button type="button" class="btn btn-primary" id="erdgSoftTast7Zu" onclick="sendButtonToServer(this, 'true');">runter</button>
+					
+					<div>
+
+						<label class="onoffswitchlabel">Esszimmer Tisch</label>
+
+					</div>
+
+					<button type="button" class="btn btn-primary" id="erdgSoftTast8Auf" onclick="sendButtonToServer(this, 'true');">rauf</button>
+
+					<button type="button" class="btn btn-primary" id="erdgSoftTast8Stop" onclick="sendButtonToServer(this, 'true');">stop</button>
+
+					<button type="button" class="btn btn-primary" id="erdgSoftTast8Zu" onclick="sendButtonToServer(this, 'true');">runter</button>
+					
+					<div>
+
+						<label class="onoffswitchlabel">Seite Posch</label>
+
+					</div>
+
+					<button type="button" class="btn btn-primary" id="erdgSoftTast9Auf" onclick="sendButtonToServer(this, 'true');">rauf</button>
+
+					<button type="button" class="btn btn-primary" id="erdgSoftTast9Stop" onclick="sendButtonToServer(this, 'true');">stop</button>
+
+					<button type="button" class="btn btn-primary" id="erdgSoftTast9Zu" onclick="sendButtonToServer(this, 'true');">runter</button>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+    <footer class="footer">
+
+      <div class="container">
+
+        <span class="text-muted">Home Control by Bichler Technologies GmbH.</span>
+
+      </div>
+
+    </footer>
+
+
+
+
+
+    <!-- Bootstrap core JavaScript
+
+    ================================================== -->
+
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="./js/jquery-3.1.1.slim.min.js" crossorigin="anonymous"></script>
+
+    <script>window.jQuery || document.write('&lt;script src="../../assets/js/vendor/jquery.min.js"&gt;&lt;\/script&gt;')</script>
+
+    <script src="./js/tether.min.js" crossorigin="anonymous"></script>
+
+    <script src="./js/bootstrap.min.js"></script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug 
+
+    <script src="./js/ie10-viewport-bug-workaround.js"></script>
+-->
+  
+
+
+
+</body></html>
